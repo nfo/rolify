@@ -14,9 +14,8 @@ Gem::Specification.new do |s|
 
   s.rubyforge_project = s.name
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.files         = Dir.glob("lib/**/*") + %w(CHANGELOG.rdoc LICENSE Rakefile README.md UPGRADE.rdoc)
+  s.test_files    = Dir["spec/**/*"]
   s.require_paths = ["lib"]
   
   if defined?(RUBY_ENGINE) && RUBY_ENGINE == "jruby"
